@@ -1,5 +1,7 @@
-package com.shivali.postOffice;
+package com.shivali.postOffice.services;
 
+import com.shivali.postOffice.exceptions.InvalidStampException;
+import com.shivali.postOffice.exceptions.PostOfficeNotInProvinceException;
 import com.shivali.postOffice.models.PostCard;
 import com.shivali.postOffice.models.PostOffice;
 import com.shivali.postOffice.models.Stamp;
@@ -7,15 +9,15 @@ import com.shivali.postOffice.models.Stamp;
 import java.util.List;
 import java.util.Optional;
 
-class PostService {
+public class PostService {
 
     List<PostOffice> postOffices;
 
-    PostService(List<PostOffice> postOffices) {
+    public PostService(List<PostOffice> postOffices) {
         this.postOffices = postOffices;
     }
 
-    boolean send(PostCard postCard) {
+    public boolean send(PostCard postCard) {
         if (!isValidStamp(postCard)) {
             throw new InvalidStampException("Cannot send postcard to other state without national stamp");
         }
