@@ -1,7 +1,7 @@
 package com.shivali.postOffice.exceptions;
 
 public class PostOfficeNotInProvinceException extends RuntimeException {
-    public PostOfficeNotInProvinceException(String message) {
-        super(message);
+    public PostOfficeNotInProvinceException() {
+        super("Destination post office is not in province");
     }
 }

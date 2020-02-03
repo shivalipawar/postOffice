@@ -9,28 +9,29 @@ import com.shivali.postOffice.models.Stamp;
 import java.util.List;
 import java.util.Optional;
 
-public class PostService {
+class PostService {
 
     List<PostOffice> postOffices;
 
-    public PostService(List<PostOffice> postOffices) {
+    PostService(List<PostOffice> postOffices) {
         this.postOffices = postOffices;
     }
 
-    public boolean send(PostCard postCard) {
+    void submit(PostCard postCard) {
         if (!isValidStamp(postCard)) {
-            throw new InvalidStampException("Cannot send postcard to other state without national stamp");
+            throw new InvalidStampException();
         }
-        Optional<PostOffice> postOffice = postOffices.stream()
+        Optional<PostOffice> postOffice = getMatchingPostOffice(postCard);
+        if (!postOffice.isPresent()) {
+            throw new PostOfficeNotInProvinceException();
+        }
+        postOffice.get().deliver(postCard);
+    }
+
+    private Optional<PostOffice> getMatchingPostOffice(PostCard postCard) {
+        return postOffices.stream()
                 .filter(p -> p.isUnderProvince(postCard.getRecipientAddress()))
                 .findFirst();
-
-        if (!postOffice.isPresent()) {
-            throw new PostOfficeNotInProvinceException("Destination post office is not in province");
-        } else {
-            postOffice.get().deliver(postCard);
-            return true;
-        }
     }
 
     private boolean isValidStamp(PostCard postCard) {
