@@ -15,12 +15,8 @@ public class Address {
         this.pinCode = pinCode;
     }
 
-    public int getPinCode() {
+    int getPinCode() {
         return pinCode;
-    }
-
-    public String getState() {
-        return state;
     }
 
     public boolean stateMatches(Address other) {

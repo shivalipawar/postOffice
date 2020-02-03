@@ -8,15 +8,15 @@ public class PostOffice {
     private Address address;
     private Set<Integer> province;
 
-    public PostOffice(int id, String name, Address address, Set<Integer> province) {
+    PostOffice(int id, String name, Address address, Set<Integer> province) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.province = province;
     }
 
-    public void recieve(PostCard postCard) {
-        System.out.println("Recieved postcard"+postCard);
+    public void deliver(PostCard postCard) {
+        System.out.println("Recieved postcard" + postCard);
     }
 
     public boolean isUnderProvince(Address address) {
