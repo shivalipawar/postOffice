@@ -7,7 +7,7 @@ public class Address {
     private String state;
     private int pinCode;
 
-    Address(String addressLine1, String landmark, String city, String state, int pinCode) {
+    public Address(String addressLine1, String landmark, String city, String state, int pinCode) {
         this.addressLine1 = addressLine1;
         this.landmark = landmark;
         this.city = city;

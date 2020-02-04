@@ -77,7 +77,7 @@ public class PostServiceTest {
                 new User("Harry", "h@g.co", senderAddress),
                 "John",
                 91753081,
-                Stamp.LOCAL);
+                Stamp.LOCAL, "");
     }
 
     private PostCard postCardWithLocalStamp() {
@@ -86,7 +86,7 @@ public class PostServiceTest {
                 new User("Harry", "h@g.co", senderAddress),
                 "John",
                 91753081,
-                Stamp.LOCAL);
+                Stamp.LOCAL, "");
     }
 
     private PostCard postCardWithNationalStamp() {
@@ -94,6 +94,6 @@ public class PostServiceTest {
                 new User("Harry", "h@g.co", senderAddress),
                 "John",
                 91753081,
-                Stamp.NATIONAL);
+                Stamp.NATIONAL, "");
     }
 }

@@ -9,15 +9,15 @@ import com.shivali.postOffice.models.Stamp;
 import java.util.List;
 import java.util.Optional;
 
-class PostService {
+public class PostService {
 
     List<PostOffice> postOffices;
 
-    PostService(List<PostOffice> postOffices) {
+    public PostService(List<PostOffice> postOffices) {
         this.postOffices = postOffices;
     }
 
-    void submit(PostCard postCard) {
+    public void submit(PostCard postCard) {
         if (!isValidStamp(postCard)) {
             throw new InvalidStampException();
         }
